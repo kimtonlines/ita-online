@@ -1,0 +1,220 @@
+{% extends '@Einscription/Public/layout.html.twig' %}
+{% block layout %}
+        <section class="container">
+    <fieldset>
+     <legend>INFORMATION ETUDIANT</legend>
+  {{ form_start(form) }}
+  
+  {# Les erreurs générales du formulaire. #}
+  {{ form_errors(form) }}
+    <div class="row">
+    <div class="col-sm-4">
+  <div class="form-group">
+     {{ form_label(form.nom, "NOM") }}
+      {# Affichage des erreurs pour ce champ précis. #}
+    {{ form_errors(form.nom) }}
+      {# Génération de l'input. #}
+      {{ form_widget(form.nom, {'attr': {'class': 'form-control'}}) }}
+    </div>
+  </div>
+    <div class="col-sm-5">
+  <div class="form-group">
+     {{ form_label(form.prenom, "PRENOM") }}
+    {{ form_errors(form.prenom) }}
+      {{ form_widget(form.prenom, {'attr': {'class': 'form-control'}}) }}
+    </div>
+  </div>
+  <div class="col-sm-3">
+  <div class="form-group">
+    {{ form_label(form.sexe, "SEXE") }}
+    {{ form_errors(form.sexe) }}
+      {{ form_widget(form.sexe, {'attr': {'class': 'form-control'}}) }}
+    </div>
+  </div>
+  </div>
+ <div class="row">
+    <div class="col-sm-3">
+  <div class="form-group">
+    {{ form_label(form.dateNaissance, "DATE DE NAISSANCE") }}
+    {{ form_errors(form.dateNaissance) }}
+      {{ form_widget(form.dateNaissance, {'attr': {'class': 'form-control'}}) }}
+    </div>
+  </div>
+    <div class="col-sm-5">
+  <div class="form-group">
+    {{ form_label(form.lieuNaissance, "LIEU DE NAISSANCE") }}
+    {{ form_errors(form.lieuNaissance) }}
+      {{ form_widget(form.lieuNaissance, {'attr': {'class': 'form-control'}}) }}
+    </div>
+  </div>
+    <div class="col-sm-4">
+  <div class="form-group">
+    {{ form_label(form.nationalite, "NATIONALITE") }}
+    {{ form_errors(form.nationalite) }}
+      {{ form_widget(form.nationalite, {'attr': {'class': 'form-control'}}) }}
+    </div>
+  </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-4">
+  <div class="form-group">
+    {{ form_label(form.adresse, "ADRESSE") }}
+    {{ form_errors(form.adresse) }}
+      {{ form_widget(form.adresse, {'attr': {'class': 'form-control'}}) }}
+    </div>
+  </div>
+  <div class="col-sm-3">
+  <div class="form-group">
+    {{ form_label(form.telephone, "TELEPHONE") }}
+    {{ form_errors(form.telephone) }}
+      {{ form_widget(form.telephone, {'attr': {'class': 'form-control'}}) }}
+    </div>
+  </div>
+  <div class="col-sm-4">
+  <div class="form-group">
+    {{ form_label(form.email, "EMAIL") }}
+    {{ form_errors(form.email) }}
+      {{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
+    </div>
+    </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-2">
+  <div class="form-group">
+      <label for="antenne">ANTENNE</label>
+      <select name="antenne" class="form-control">
+          <option value=""></option>
+          <option value="1">II PLATEAUX</option>
+          <option value="2">MARCORY</option>
+          </select>
+    </div>
+  </div>
+          <div id="cycle" class="col-sm-2">
+  <div class="form-group">
+      <label for="cycle">CYCLE</label>
+      <select name="cycle" class="form-control">
+          <option value=""></option>
+          <option value="1">BTS</option>
+          <option value="2">INGENIEUR</option>
+      </select>
+    </div>
+  </div>
+        <div class="col-sm-4">
+            <div class="form-group">
+                {{ form_label(form.classe, "CLASSE") }}
+                {{ form_errors(form.classe) }}
+                {{ form_widget(form.classe, {'attr': {'class': 'form-control'}}) }}
+            </div>
+        </div>
+           <div id="filierebts" class="col-sm-2">
+  <div class="form-group">
+      <label for="filierebts">FILLIERE</label>
+      <select name="filiere" class="form-control">
+          <option value=""></option>
+          <option value=1>RHCOM</option>
+          <option value=2>IDA</option>
+          </select>
+    </div>
+  </div>
+            <div id="filiereing" class="col-sm-2">
+  <div id="filiereing" class="form-group">
+      <label for="filiereing">FILLIERE</label>
+      <select name="filiere" class="form-control">
+          <option value=""></option>
+          <option value="1">GRH</option>
+          <option value="2">SI</option>
+          </select>
+    </div>
+  </div>
+            <div id="nivbts" class="col-sm-2">
+  <div class="form-group">
+      <label for="nivbts">NIVEAU</label>
+      <select name="niveau" class="form-control">
+          <option value=""></option>
+          <option value="1">1ERE ANNEE</option>
+          <option value="2">2EME ANNEE</option>
+          </select>
+    </div>
+  </div>
+              <div id="niving" class="col-sm-2">
+  <div class="form-group">
+      <label for="niving">NIVEAU</label>
+      <select name="niveau" class="form-control">
+          <option value=""></option>
+          <option value="1">3EME ANNEE</option>
+          <option value="2">4EME ANNEE</option>
+           <option value="3">5EME ANNEE</option>
+
+          </select>
+    </div>
+  </div>
+                 <div id="periode" class="col-sm-2">
+  <div class="form-group">
+      <label for="periode">PERIODE</label>
+      <select name="periode" class="form-control">
+          <option value=""></option>
+          <option value="1">JOUR</option>
+          <option value="2">SOIR</option>
+          </select>
+    </div>
+  </div>
+  </div>
+  </fieldset>
+  <fieldset>
+                <legend>INFORMATION CORRESPONDANT</legend>
+      <div class="container">
+                <div class="row">
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        {{ form_label(form.correspondant.nom, "NOM") }}
+                        {# Affichage des erreurs pour ce champ précis. #}
+                        {{ form_errors(form.correspondant.nom) }}
+                        {# Génération de l'input. #}
+                        {{ form_widget(form.correspondant.nom, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                </div>
+                    <div class="col-sm-4">
+                    <div class="form-group">
+                        {{ form_label(form.correspondant.prenom, "PRENOM") }}
+                        {# Affichage des erreurs pour ce champ précis. #}
+                        {{ form_errors(form.correspondant.prenom) }}
+                        {# Génération de l'input. #}
+                        {{ form_widget(form.correspondant.prenom, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                </div>
+                </div>
+          <div class="row">
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        {{ form_label(form.correspondant.sexe, "SEXE") }}
+                        {# Affichage des erreurs pour ce champ précis. #}
+                        {{ form_errors(form.correspondant.sexe) }}
+                        {# Génération de l'input. #}
+                        {{ form_widget(form.correspondant.sexe, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        {{ form_label(form.correspondant.telephone, "TELEPHONE") }}
+                        {# Affichage des erreurs pour ce champ précis. #}
+                        {{ form_errors(form.correspondant.telephone) }}
+                        {# Génération de l'input. #}
+                        {{ form_widget(form.correspondant.telephone, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                </div>
+            </div>
+      </div>
+  </fieldset>
+  <button type="submit" class="btn btn-primary">ENREGISTRER</button>
+                <button class="btn btn-outline-dark">RENITIALISER</button>
+            </div>
+
+  {# Fermeture de la balise <form> du formulaire HTML #}
+
+  {{ form_end(form) }}
+    </section>
+{% endblock %}
+
+{% block stylesheets %}
+
+{% endblock %}

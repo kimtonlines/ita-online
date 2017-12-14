@@ -1,0 +1,146 @@
+{% extends '@Einscription/Public/layout.html.twig' %}
+{% block layout %}
+    <section>
+        <div class="container">
+    <fieldset>
+     <legend>INFORMATION ETUDIANT</legend>
+  {{ form_start(edit_form) }}
+  {# Les erreurs générales du formulaire. #}
+  {{ form_errors(edit_form) }}
+    <div class="row">
+    <div class="col-sm-4">
+  <div class="form-group">
+     {{ form_label(edit_form.nom, "NOM") }}
+      {# Affichage des erreurs pour ce champ précis. #}
+    {{ form_errors(edit_form.nom) }}
+      {# Génération de l'input. #}
+      {{ form_widget(edit_form.nom, {'attr': {'class': 'form-control'}}) }}
+    </div>
+  </div>
+    <div class="col-sm-5">
+  <div class="form-group">
+     {{ form_label(edit_form.prenom, "PRENOM") }}
+    {{ form_errors(edit_form.prenom) }}
+      {{ form_widget(edit_form.prenom, {'attr': {'class': 'form-control'}}) }}
+    </div>
+  </div>
+  <div class="col-sm-3">
+  <div class="form-group">
+    {{ form_label(edit_form.sexe, "SEXE") }}
+    {{ form_errors(edit_form.sexe) }}
+      {{ form_widget(edit_form.sexe, {'attr': {'class': 'form-control'}}) }}
+    </div>
+  </div>
+  </div>
+ <div class="row">
+    <div class="col-sm-3">
+  <div class="form-group">
+    {{ form_label(edit_form.dateNaissance, "DATE DE NAISSANCE") }}
+    {{ form_errors(edit_form.dateNaissance) }}
+      {{ form_widget(edit_form.dateNaissance, {'attr': {'class': 'form-control'}}) }}
+    </div>
+  </div>
+    <div class="col-sm-5">
+  <div class="form-group">
+    {{ form_label(edit_form.lieuNaissance, "LIEU DE NAISSANCE") }}
+    {{ form_errors(edit_form.lieuNaissance) }}
+      {{ form_widget(edit_form.lieuNaissance, {'attr': {'class': 'form-control'}}) }}
+    </div>
+  </div>
+    <div class="col-sm-4">
+  <div class="form-group">
+    {{ form_label(edit_form.nationalite, "NATIONALITE") }}
+    {{ form_errors(edit_form.nationalite) }}
+      {{ form_widget(edit_form.nationalite, {'attr': {'class': 'form-control'}}) }}
+    </div>
+  </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-4">
+  <div class="form-group">
+    {{ form_label(edit_form.adresse, "ADRESSE") }}
+    {{ form_errors(edit_form.adresse) }}
+      {{ form_widget(edit_form.adresse, {'attr': {'class': 'form-control'}}) }}
+    </div>
+  </div>
+  <div class="col-sm-3">
+  <div class="form-group">
+    {{ form_label(edit_form.telephone, "TELEPHONE") }}
+    {{ form_errors(edit_form.telephone) }}
+      {{ form_widget(edit_form.telephone, {'attr': {'class': 'form-control'}}) }}
+    </div>
+  </div>
+  <div class="col-sm-4">
+  <div class="form-group">
+    {{ form_label(edit_form.email, "EMAIL") }}
+    {{ form_errors(edit_form.email) }}
+      {{ form_widget(edit_form.email, {'attr': {'class': 'form-control'}}) }}
+    </div>
+    </div>
+    </div>
+      <div class="row">
+  <div class="col-sm-3">
+  <div class="form-group">
+    {{ form_label(edit_form.classe, "CLASSE") }}
+    {{ form_errors(edit_form.classe) }}
+      {{ form_widget(edit_form.classe, {'attr': {'class': 'form-control'}}) }}
+    </div>
+  </div>
+  <div class="col-sm-4">
+  <div class="form-group">
+    {{ form_label(edit_form.frais_inscription, "FRAIS D'INSCRIPTION") }}
+    {{ form_errors(edit_form.frais_inscription) }}
+      {{ form_widget(edit_form.frais_inscription, {'attr': {'class': 'form-control'}}) }}
+    </div>
+    </div>
+    </div>
+  </fieldset>
+  <fieldset>
+                <legend>INFORMATION CORRESPONDANT</legend>
+            </fieldset>
+    <div class="row">
+    <div class="col-sm-4">
+  <div class="form-group">
+     {{ form_label(edit_form.correspondant.nom, "NOM") }}
+      {# Affichage des erreurs pour ce champ précis. #}
+    {{ form_errors(edit_form.correspondant.nom) }}
+      {# Génération de l'input. #}
+      {{ form_widget(edit_form.correspondant.nom, {'attr': {'class': 'form-control'}}) }}
+    </div>
+  </div>
+    <div class="col-sm-5">
+  <div class="form-group">
+     {{ form_label(edit_form.correspondant.prenom, "PRENOM") }}
+    {{ form_errors(edit_form.correspondant.prenom) }}
+      {{ form_widget(edit_form.correspondant.prenom, {'attr': {'class': 'form-control'}}) }}
+    </div>
+  </div>
+    </div>
+    <div class="row">
+  <div class="col-sm-3">
+  <div class="form-group">
+    {{ form_label(edit_form.correspondant.sexe, "SEXE") }}
+    {{ form_errors(edit_form.correspondant.sexe) }}
+      {{ form_widget(edit_form.correspondant.sexe, {'attr': {'class': 'form-control'}}) }}
+    </div>
+  </div>
+  <div class="col-sm-3">
+  <div class="form-group">
+    {{ form_label(edit_form.correspondant.telephone, "TELEPHONE") }}
+    {{ form_errors(edit_form.correspondant.telephone) }}
+      {{ form_widget(edit_form.correspondant.telephone, {'attr': {'class': 'form-control'}}) }}
+    </div>
+  </div>
+    </div>
+     <div>
+  <button type="submit" class="btn btn-primary">VALIDER</button>
+      </div>
+
+  {# Fermeture de la balise <form> du formulaire HTML #}
+  {{ form_end(edit_form) }}
+    </section>
+{% endblock %}
+
+{% block stylesheets %}
+
+{% endblock %}

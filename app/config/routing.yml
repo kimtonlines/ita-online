@@ -1,0 +1,56 @@
+einscription_correspondant:
+    resource: "@EinscriptionBundle/Controller/CorrespondantController.php"
+    type:     annotation
+
+einscription_etudiant:
+    resource: "@EinscriptionBundle/Controller/EtudiantController.php"
+    type:     annotation
+
+einscription_home:
+      path:     /
+      defaults: { _controller: EinscriptionBundle:Einscription:index }
+
+einscription_admin:
+      path:     /admin
+      defaults: { _controller: EinscriptionBundle:Einscription:admin }
+
+etudiants/post:
+      path:     /etudiants/post
+      defaults: { _controller: EinscriptionBundle:Einscription:post }
+
+etudiants/get:
+      path:     /etudiants/get/{id}
+      defaults: { _controller: EinscriptionBundle:Einscription:get }
+
+etudiants/put:
+      path:      /etudiants/put/{id}
+      defaults: { _controller: EinscriptionBundle:Einscription:put}
+
+
+einscription_inscription_payement:
+      path:     /inscription.payement
+      defaults: { _controller: EinscriptionBundle:Einscription:payement }
+
+einscription_reinscription:
+      path:     /reinscription
+      defaults: { _controller: EinscriptionBundle:Einscription:reinscription }
+
+einscription_reinscription_rematricule:
+      path:     /reinscription.matricule
+      defaults: { _controller: EinscriptionBundle:Einscription:rematricule }
+
+einscription_reinscription_reinformation:
+      path:     /reinscription.information
+      defaults: { _controller: EinscriptionBundle:Einscription:reinformation }
+
+einscription_reinscription_reverification:
+      path:     /reinscription.verification
+      defaults: { _controller: EinscriptionBundle:Einscription:reverification }
+
+einscription_reinscription_repayement:
+      path:     /reinscription.payement
+      defaults: { _controller: EinscriptionBundle:Einscription:repayement }
+
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation

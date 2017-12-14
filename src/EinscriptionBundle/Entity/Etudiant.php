@@ -1,0 +1,496 @@
+<?php
+
+namespace EinscriptionBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Etudiant
+ *
+ * @ORM\Table(name="etudiant")
+ * @ORM\Entity(repositoryClass="EinscriptionBundle\Repository\EtudiantRepository")
+ */
+class Etudiant
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="matricule", type="string", length=255, unique=true)
+     */
+    private $matricule;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nom", type="string", length=255)
+     */
+    private $nom;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="prenom", type="string", length=255)
+     */
+    private $prenom;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="sexe", type="string", length=255)
+     */
+    private $sexe;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="dateNaissance", type="date")
+     */
+    private $dateNaissance;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="lieuNaissance", type="string", length=255)
+     */
+    private $lieuNaissance;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nationalite", type="string", length=255)
+     */
+    private $nationalite;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="adresse", type="string", length=255)
+     */
+    private $adresse;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="telephone", type="string", length=255, unique=true)
+     */
+    private $telephone;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="email", type="string", length=255, unique=true)
+     */
+    private $email;
+
+    /**
+     * @ORM\OneToOne(targetEntity="EinscriptionBundle\Entity\Photo", cascade={"persist"})
+     */
+    private $photo;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="EinscriptionBundle\Entity\Correspondant")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $correspondant;
+
+   /**
+     * @ORM\ManyToOne(targetEntity="EinscriptionBundle\Entity\Classe")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $classe;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="EinscriptionBundle\Entity\Frais_Inscription")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $frais_inscription;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="EinscriptionBundle\Entity\Annee_Academique")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $annee_academique;
+
+    public function __construct(){
+        $this->matricule = rand(10, 20).'ITA'.rand(30, 40). date('d/m');
+    }
+
+    /**
+     * Get id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set matricule
+     *
+     * @param string $matricule
+     *
+     * @return Etudiant
+     */
+    public function setMatricule($matricule)
+    {
+        $this->matricule = $matricule;
+
+        return $this;
+    }
+
+    /**
+     * Get matricule
+     *
+     * @return string
+     */
+    public function getMatricule()
+    {
+        return $this->matricule;
+    }
+
+    /**
+     * Set nom
+     *
+     * @param string $nom
+     *
+     * @return Etudiant
+     */
+    public function setNom($nom)
+    {
+        $this->nom = $nom;
+
+        return $this;
+    }
+
+    /**
+     * Get nom
+     *
+     * @return string
+     */
+    public function getNom()
+    {
+        return $this->nom;
+    }
+
+    /**
+     * Set prenom
+     *
+     * @param string $prenom
+     *
+     * @return Etudiant
+     */
+    public function setPrenom($prenom)
+    {
+        $this->prenom = $prenom;
+
+        return $this;
+    }
+
+    /**
+     * Get prenom
+     *
+     * @return string
+     */
+    public function getPrenom()
+    {
+        return $this->prenom;
+    }
+
+    /**
+     * Set sexe
+     *
+     * @param string $sexe
+     *
+     * @return Etudiant
+     */
+    public function setSexe($sexe)
+    {
+        $this->sexe = $sexe;
+
+        return $this;
+    }
+
+    /**
+     * Get sexe
+     *
+     * @return string
+     */
+    public function getSexe()
+    {
+        return $this->sexe;
+    }
+
+    /**
+     * Set dateNaissance
+     *
+     * @param \DateTime $dateNaissance
+     *
+     * @return Etudiant
+     */
+    public function setDateNaissance($dateNaissance)
+    {
+        $this->dateNaissance = $dateNaissance;
+
+        return $this;
+    }
+
+    /**
+     * Get dateNaissance
+     *
+     * @return \DateTime
+     */
+    public function getDateNaissance()
+    {
+        return $this->dateNaissance;
+    }
+
+    /**
+     * Set lieuNaissance
+     *
+     * @param string $lieuNaissance
+     *
+     * @return Etudiant
+     */
+    public function setLieuNaissance($lieuNaissance)
+    {
+        $this->lieuNaissance = $lieuNaissance;
+
+        return $this;
+    }
+
+    /**
+     * Get lieuNaissance
+     *
+     * @return string
+     */
+    public function getLieuNaissance()
+    {
+        return $this->lieuNaissance;
+    }
+
+    /**
+     * Set nationalite
+     *
+     * @param string $nationalite
+     *
+     * @return Etudiant
+     */
+    public function setNationalite($nationalite)
+    {
+        $this->nationalite = $nationalite;
+
+        return $this;
+    }
+
+    /**
+     * Get nationalite
+     *
+     * @return string
+     */
+    public function getNationalite()
+    {
+        return $this->nationalite;
+    }
+
+    /**
+     * Set adresse
+     *
+     * @param string $adresse
+     *
+     * @return Etudiant
+     */
+    public function setAdresse($adresse)
+    {
+        $this->adresse = $adresse;
+
+        return $this;
+    }
+
+    /**
+     * Get adresse
+     *
+     * @return string
+     */
+    public function getAdresse()
+    {
+        return $this->adresse;
+    }
+
+    /**
+     * Set telephone
+     *
+     * @param string $telephone
+     *
+     * @return Etudiant
+     */
+    public function setTelephone($telephone)
+    {
+        $this->telephone = $telephone;
+
+        return $this;
+    }
+
+    /**
+     * Get telephone
+     *
+     * @return string
+     */
+    public function getTelephone()
+    {
+        return $this->telephone;
+    }
+
+    /**
+     * Set email
+     *
+     * @param string $email
+     *
+     * @return Etudiant
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
+    /**
+     * Get email
+     *
+     * @return string
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * Set photo
+     *
+     * @param \EinscriptionBundle\Entity\Photo $photo
+     *
+     * @return Etudiant
+     */
+    public function setPhoto(\EinscriptionBundle\Entity\Photo $photo = null)
+    {
+        $this->photo = $photo;
+
+        return $this;
+    }
+
+    /**
+     * Get photo
+     *
+     * @return \EinscriptionBundle\Entity\Photo
+     */
+    public function getPhoto()
+    {
+        return $this->photo;
+    }
+
+    /**
+     * Set correspondant
+     *
+     * @param \EinscriptionBundle\Entity\Correspondant $correspondant
+     *
+     * @return Etudiant
+     */
+    public function setCorrespondant(\EinscriptionBundle\Entity\Correspondant $correspondant)
+    {
+        $this->correspondant = $correspondant;
+
+        return $this;
+    }
+
+    /**
+     * Get correspondant
+     *
+     * @return \EinscriptionBundle\Entity\Correspondant
+     */
+    public function getCorrespondant()
+    {
+        return $this->correspondant;
+    }
+
+    /**
+     * Set classe
+     *
+     * @param \EinscriptionBundle\Entity\Classe $classe
+     *
+     * @return Etudiant
+     */
+    public function setClasse(\EinscriptionBundle\Entity\Classe $classe)
+    {
+        $this->classe = $classe;
+
+        return $this;
+    }
+
+    /**
+     * Get classe
+     *
+     * @return \EinscriptionBundle\Entity\Classe
+     */
+    public function getClasse()
+    {
+        return $this->classe;
+    }
+
+    /**
+     * Set fraisInscription
+     *
+     * @param \EinscriptionBundle\Entity\Frais_Inscription $fraisInscription
+     *
+     * @return Etudiant
+     */
+    public function setFraisInscription(\EinscriptionBundle\Entity\Frais_Inscription $fraisInscription)
+    {
+        $this->frais_inscription = $fraisInscription;
+
+        return $this;
+    }
+
+    /**
+     * Get fraisInscription
+     *
+     * @return \EinscriptionBundle\Entity\Frais_Inscription
+     */
+    public function getFraisInscription()
+    {
+        return $this->frais_inscription;
+    }
+
+    /**
+     * Set anneeAcademique
+     *
+     * @param \EinscriptionBundle\Entity\Annee_Academique $anneeAcademique
+     *
+     * @return Etudiant
+     */
+    public function setAnneeAcademique(\EinscriptionBundle\Entity\Annee_Academique $anneeAcademique)
+    {
+        $this->annee_academique = $anneeAcademique;
+
+        return $this;
+    }
+
+    /**
+     * Get anneeAcademique
+     *
+     * @return \EinscriptionBundle\Entity\Annee_Academique
+     */
+    public function getAnneeAcademique()
+    {
+        return $this->annee_academique;
+    }
+}

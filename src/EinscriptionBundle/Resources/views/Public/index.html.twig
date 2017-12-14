@@ -1,0 +1,49 @@
+{% extends '@Einscription/Public/layout.html.twig' %}
+{% block layout %}
+<section>
+    <div class="container">
+        <div class="row" style="margin-left: 150px">
+            <div class="col-md-3 col-sm-6">
+                <div class="service-item">
+                  <span class="fa-stack fa-4x">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-pencil-square-o fa-stack-1x text-white"></i>
+                  </span>
+                    <h4 style="color: black">
+                        <strong>Inscription</strong>
+                    </h4>
+                    <a href="{{ path('etudiants/post') }}" class="btn btn-outline-primary">Nouveau au Groupe ITA</a>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="service-item">
+                  <span class="fa-stack fa-4x">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-id-card-o fa-stack-1x text-white"></i>
+                  </span>
+                    <h4 style="color: black">
+                        <strong>Réinscription</strong>
+                    </h4>
+                    <a href="{{ path('einscription_reinscription') }}" class="btn btn-outline-primary">Ancien du Groupe ITA</a>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="service-item">
+                  <span class="fa-stack fa-4x">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-print fa-stack-1x text-white"></i>
+                  </span>
+                    <h4 style="color: black">
+                        <strong>Impression</strong>
+                    </h4>
+                    <a href="#" class="btn btn-outline-primary">Fiche d'Inscription</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block stylesheets %}
+
+{% endblock %}

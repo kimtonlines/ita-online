@@ -1,0 +1,22 @@
+{% extends '@Einscription/Public/index.html.twig' %}
+{% block body %}
+    <div class="container">
+        <p class="btn-lg btn-primary" style="text-align: center">MATRICULE</p>
+        <div class="container">
+            <div class="form-group">
+                <div class="col-sm-6">
+                    <label for="rematricule">ENTRER VOTRE MATRICULE</label>
+                    <form action="{{ path('einscription_reinscription_reinformation') }}" method="post">
+                        <input type="text" name="rematricule" id="rematricule" class="form-control">
+                        <br>
+                        <button type="submit" name="rematricule.confirmer" class="btn btn-outline-primary">VALIDER</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block stylesheets %}
+
+{% endblock %}

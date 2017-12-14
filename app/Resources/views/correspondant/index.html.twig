@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Correspondants list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Sexe</th>
+                <th>Telephone</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for correspondant in correspondants %}
+            <tr>
+                <td><a href="{{ path('correspondant_show', { 'id': correspondant.id }) }}">{{ correspondant.id }}</a></td>
+                <td>{{ correspondant.nom }}</td>
+                <td>{{ correspondant.prenom }}</td>
+                <td>{{ correspondant.sexe }}</td>
+                <td>{{ correspondant.telephone }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('correspondant_show', { 'id': correspondant.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('correspondant_edit', { 'id': correspondant.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('correspondant_new') }}">Create a new correspondant</a>
+        </li>
+    </ul>
+{% endblock %}

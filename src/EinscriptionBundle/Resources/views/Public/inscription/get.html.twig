@@ -1,0 +1,73 @@
+{% extends '@Einscription/Public/layout.html.twig' %}
+{% block layout %}
+    <section>
+        <div class="container">
+        <form method="post" action="{{ path('einscription_inscription_payement') }}">
+         <table>
+        <tbody>
+            <tr>
+                <th>Nom</th>
+                <td>{{ etudiant.nom }}</td>
+            </tr>
+            <tr>
+                <th>Prenom</th>
+                <td>{{ etudiant.prenom }}</td>
+            </tr>
+            <tr>
+                <th>Sexe</th>
+                <td>{{ etudiant.sexe }}</td>
+            </tr>
+            <tr>
+                <th>Date de naissance</th>
+                <td>{% if etudiant.dateNaissance %}{{ etudiant.dateNaissance|date('d-m-y') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Lieu de naissance</th>
+                <td>{{ etudiant.lieuNaissance }}</td>
+            </tr>
+            <tr>
+                <th>Nationalite</th>
+                <td>{{ etudiant.nationalite }}</td>
+            </tr>
+            <tr>
+                <th>Adresse</th>
+                <td>{{ etudiant.adresse }}</td>
+            </tr>
+            <tr>
+                <th>Telephone</th>
+                <td>{{ etudiant.telephone }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ etudiant.email }}</td>
+            </tr>
+             <tr>
+                <th>Correspondant</th>
+                <td>{{ etudiant.correspondant.nom }}</td>
+            </tr>
+            <tr>
+                <th>Classe</th>
+                <td>{{ etudiant.classe.libelle }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <div class="row">
+             <div class="col-sm-2">
+         <div class="form-group">
+  <button type="submit" name="testi" class="btn btn-primary">CONFIRMER</button>
+  </form>
+</div>
+  </div>        
+        <div class="col-sm-1">
+            <div class="form-group">
+  <form method="post" action="{{ path('etudiants/put', { 'id': etudiant.id }) }}"><button type="submit" name="test" class="btn btn-outline-dark">MODIFIER</button></form>
+</div>
+</div>
+</div>
+    </section>
+{% endblock %}
+
+{% block stylesheets %}
+
+{% endblock %}
